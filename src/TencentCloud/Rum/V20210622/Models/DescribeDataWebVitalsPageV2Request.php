@@ -18,12 +18,10 @@ namespace TencentCloud\Rum\V20210622\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribeDataStaticResource请求参数结构体
+ * DescribeDataWebVitalsPageV2请求参数结构体
  *
  * @method integer getStartTime() 获取开始时间
  * @method void setStartTime(integer $StartTime) 设置开始时间
- * @method string getType() 获取top：资源top视图，count40x：40X视图，nettype/version/platform/isp/region/device/browser/ext1/ext2/ext3/ret/status/from/url/env/：网络平台视图/Version视图/设备视图/ISP视图/地区视图/浏览器视图//ext1视图等等
- * @method void setType(string $Type) 设置top：资源top视图，count40x：40X视图，nettype/version/platform/isp/region/device/browser/ext1/ext2/ext3/ret/status/from/url/env/：网络平台视图/Version视图/设备视图/ISP视图/地区视图/浏览器视图//ext1视图等等
  * @method integer getEndTime() 获取结束时间
  * @method void setEndTime(integer $EndTime) 设置结束时间
  * @method integer getID() 获取项目ID
@@ -38,6 +36,8 @@ use TencentCloud\Common\AbstractModel;
  * @method void setFrom(string $From) 设置来源页面
  * @method string getLevel() 获取日志等级
  * @method void setLevel(string $Level) 设置日志等级
+ * @method string getType() 获取类型暂无
+ * @method void setType(string $Type) 设置类型暂无
  * @method string getBrand() 获取品牌
  * @method void setBrand(string $Brand) 设置品牌
  * @method string getArea() 获取地区
@@ -50,8 +50,8 @@ use TencentCloud\Common\AbstractModel;
  * @method void setExtThird(string $ExtThird) 设置自定义3
  * @method string getExtFirst() 获取自定义1
  * @method void setExtFirst(string $ExtFirst) 设置自定义1
- * @method string getNetType() 获取网络类型(tag 值):用于过滤/聚合字段 netType；枚举值：1(WiFi)、2(2G)、3(3G)、4(4G)、5(5G)、6(6G)、100(未知网络)。
- * @method void setNetType(string $NetType) 设置网络类型(tag 值):用于过滤/聚合字段 netType；枚举值：1(WiFi)、2(2G)、3(3G)、4(4G)、5(5G)、6(6G)、100(未知网络)。
+ * @method string getNetType() 获取网络类型
+ * @method void setNetType(string $NetType) 设置网络类型
  * @method string getDevice() 获取机型
  * @method void setDevice(string $Device) 设置机型
  * @method string getIsAbroad() 获取显示是否海外,1表示海外，0表示非海外；默认值为空，查询所有。
@@ -60,24 +60,19 @@ use TencentCloud\Common\AbstractModel;
  * @method void setOs(string $Os) 设置操作系统
  * @method string getBrowser() 获取浏览器
  * @method void setBrowser(string $Browser) 设置浏览器
- * @method string getCostType() 获取耗时口径："50"/"75"/"90"/"95"/"99"/"99.5" 分别表示 TP50/TP75/TP90/TP95/TP99/TP99.5（percentile2）；"avg" 表示均值（avg）。
- * @method void setCostType(string $CostType) 设置耗时口径："50"/"75"/"90"/"95"/"99"/"99.5" 分别表示 TP50/TP75/TP90/TP95/TP99/TP99.5（percentile2）；"avg" 表示均值（avg）。
- * @method string getUrl() 获取来源
- * @method void setUrl(string $Url) 设置来源
+ * @method string getCostType() 获取耗时计算
+ * @method void setCostType(string $CostType) 设置耗时计算
  * @method string getEnv() 获取环境
  * @method void setEnv(string $Env) 设置环境
+ * @method string getGranularity() 获取时间段
+ * @method void setGranularity(string $Granularity) 设置时间段
  */
-class DescribeDataStaticResourceRequest extends AbstractModel
+class DescribeDataWebVitalsPageV2Request extends AbstractModel
 {
     /**
      * @var integer 开始时间
      */
     public $StartTime;
-
-    /**
-     * @var string top：资源top视图，count40x：40X视图，nettype/version/platform/isp/region/device/browser/ext1/ext2/ext3/ret/status/from/url/env/：网络平台视图/Version视图/设备视图/ISP视图/地区视图/浏览器视图//ext1视图等等
-     */
-    public $Type;
 
     /**
      * @var integer 结束时间
@@ -115,6 +110,11 @@ class DescribeDataStaticResourceRequest extends AbstractModel
     public $Level;
 
     /**
+     * @var string 类型暂无
+     */
+    public $Type;
+
+    /**
      * @var string 品牌
      */
     public $Brand;
@@ -145,7 +145,7 @@ class DescribeDataStaticResourceRequest extends AbstractModel
     public $ExtFirst;
 
     /**
-     * @var string 网络类型(tag 值):用于过滤/聚合字段 netType；枚举值：1(WiFi)、2(2G)、3(3G)、4(4G)、5(5G)、6(6G)、100(未知网络)。
+     * @var string 网络类型
      */
     public $NetType;
 
@@ -170,14 +170,9 @@ class DescribeDataStaticResourceRequest extends AbstractModel
     public $Browser;
 
     /**
-     * @var string 耗时口径："50"/"75"/"90"/"95"/"99"/"99.5" 分别表示 TP50/TP75/TP90/TP95/TP99/TP99.5（percentile2）；"avg" 表示均值（avg）。
+     * @var string 耗时计算
      */
     public $CostType;
-
-    /**
-     * @var string 来源
-     */
-    public $Url;
 
     /**
      * @var string 环境
@@ -185,8 +180,12 @@ class DescribeDataStaticResourceRequest extends AbstractModel
     public $Env;
 
     /**
+     * @var string 时间段
+     */
+    public $Granularity;
+
+    /**
      * @param integer $StartTime 开始时间
-     * @param string $Type top：资源top视图，count40x：40X视图，nettype/version/platform/isp/region/device/browser/ext1/ext2/ext3/ret/status/from/url/env/：网络平台视图/Version视图/设备视图/ISP视图/地区视图/浏览器视图//ext1视图等等
      * @param integer $EndTime 结束时间
      * @param integer $ID 项目ID
      * @param string $ExtSecond 自定义2
@@ -194,20 +193,21 @@ class DescribeDataStaticResourceRequest extends AbstractModel
      * @param string $Isp 运营商
      * @param string $From 来源页面
      * @param string $Level 日志等级
+     * @param string $Type 类型暂无
      * @param string $Brand 品牌
      * @param string $Area 地区
      * @param string $VersionNum 版本
      * @param string $Platform 平台
      * @param string $ExtThird 自定义3
      * @param string $ExtFirst 自定义1
-     * @param string $NetType 网络类型(tag 值):用于过滤/聚合字段 netType；枚举值：1(WiFi)、2(2G)、3(3G)、4(4G)、5(5G)、6(6G)、100(未知网络)。
+     * @param string $NetType 网络类型
      * @param string $Device 机型
      * @param string $IsAbroad 显示是否海外,1表示海外，0表示非海外；默认值为空，查询所有。
      * @param string $Os 操作系统
      * @param string $Browser 浏览器
-     * @param string $CostType 耗时口径："50"/"75"/"90"/"95"/"99"/"99.5" 分别表示 TP50/TP75/TP90/TP95/TP99/TP99.5（percentile2）；"avg" 表示均值（avg）。
-     * @param string $Url 来源
+     * @param string $CostType 耗时计算
      * @param string $Env 环境
+     * @param string $Granularity 时间段
      */
     function __construct()
     {
@@ -224,10 +224,6 @@ class DescribeDataStaticResourceRequest extends AbstractModel
         }
         if (array_key_exists("StartTime",$param) and $param["StartTime"] !== null) {
             $this->StartTime = $param["StartTime"];
-        }
-
-        if (array_key_exists("Type",$param) and $param["Type"] !== null) {
-            $this->Type = $param["Type"];
         }
 
         if (array_key_exists("EndTime",$param) and $param["EndTime"] !== null) {
@@ -256,6 +252,10 @@ class DescribeDataStaticResourceRequest extends AbstractModel
 
         if (array_key_exists("Level",$param) and $param["Level"] !== null) {
             $this->Level = $param["Level"];
+        }
+
+        if (array_key_exists("Type",$param) and $param["Type"] !== null) {
+            $this->Type = $param["Type"];
         }
 
         if (array_key_exists("Brand",$param) and $param["Brand"] !== null) {
@@ -306,12 +306,12 @@ class DescribeDataStaticResourceRequest extends AbstractModel
             $this->CostType = $param["CostType"];
         }
 
-        if (array_key_exists("Url",$param) and $param["Url"] !== null) {
-            $this->Url = $param["Url"];
-        }
-
         if (array_key_exists("Env",$param) and $param["Env"] !== null) {
             $this->Env = $param["Env"];
+        }
+
+        if (array_key_exists("Granularity",$param) and $param["Granularity"] !== null) {
+            $this->Granularity = $param["Granularity"];
         }
     }
 }

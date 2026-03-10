@@ -18,7 +18,7 @@ namespace TencentCloud\Rum\V20210622\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribeDataPerformancePage请求参数结构体
+ * DescribeDataBridgeUrlV2请求参数结构体
  *
  * @method integer getID() 获取项目ID
  * @method void setID(integer $ID) 设置项目ID
@@ -26,16 +26,16 @@ use TencentCloud\Common\AbstractModel;
  * @method void setStartTime(integer $StartTime) 设置开始时间
  * @method integer getEndTime() 获取结束时间
  * @method void setEndTime(integer $EndTime) 设置结束时间
- * @method string getType() 获取pagepv：pv视图，allcount：性能视图，falls：页面加载瀑布图，samp：首屏时间，day：14天数据，nettype：网络/平台视图，performance：页面性能TOP视图，version/platform/isp/region/device/browser/ext1/ext2/ext3/ret/status/from/url/env/：ISP视图/地区视图/浏览器视图等
- * @method void setType(string $Type) 设置pagepv：pv视图，allcount：性能视图，falls：页面加载瀑布图，samp：首屏时间，day：14天数据，nettype：网络/平台视图，performance：页面性能TOP视图，version/platform/isp/region/device/browser/ext1/ext2/ext3/ret/status/from/url/env/：ISP视图/地区视图/浏览器视图等
+ * @method string getType() 获取pagepv：性能视图，allcount：性能视图，falls：页面加载瀑布图，samp：首屏时间，day：14天数据，nettype：网络/平台视图，performance：页面性能TOP视图，version/platform/isp/region/device/browser/ext1/ext2/ext3/ret/status/from/url/env/：ISP视图/地区视图/浏览器视图等
+ * @method void setType(string $Type) 设置pagepv：性能视图，allcount：性能视图，falls：页面加载瀑布图，samp：首屏时间，day：14天数据，nettype：网络/平台视图，performance：页面性能TOP视图，version/platform/isp/region/device/browser/ext1/ext2/ext3/ret/status/from/url/env/：ISP视图/地区视图/浏览器视图等
  * @method string getLevel() 获取日志等级
  * @method void setLevel(string $Level) 设置日志等级
  * @method string getIsp() 获取运营商
  * @method void setIsp(string $Isp) 设置运营商
  * @method string getArea() 获取地区
  * @method void setArea(string $Area) 设置地区
- * @method string getNetType() 获取网络类型(tag 值):用于过滤/聚合字段 netType；枚举值：1(WiFi)、2(2G)、3(3G)、4(4G)、5(5G)、6(6G)、100(未知网络)。
- * @method void setNetType(string $NetType) 设置网络类型(tag 值):用于过滤/聚合字段 netType；枚举值：1(WiFi)、2(2G)、3(3G)、4(4G)、5(5G)、6(6G)、100(未知网络)。
+ * @method string getNetType() 获取网络类型
+ * @method void setNetType(string $NetType) 设置网络类型
  * @method string getPlatform() 获取平台
  * @method void setPlatform(string $Platform) 设置平台
  * @method string getDevice() 获取机型
@@ -48,8 +48,8 @@ use TencentCloud\Common\AbstractModel;
  * @method void setExtSecond(string $ExtSecond) 设置自定义2
  * @method string getExtThird() 获取自定义3
  * @method void setExtThird(string $ExtThird) 设置自定义3
- * @method string getIsAbroad() 获取显示是否海外,1表示海外，0表示非海外；默认值为空，查询所有。
- * @method void setIsAbroad(string $IsAbroad) 设置显示是否海外,1表示海外，0表示非海外；默认值为空，查询所有。
+ * @method string getIsAbroad() 获取是否海外
+ * @method void setIsAbroad(string $IsAbroad) 设置是否海外
  * @method string getBrowser() 获取浏览器
  * @method void setBrowser(string $Browser) 设置浏览器
  * @method string getOs() 获取操作系统
@@ -60,16 +60,36 @@ use TencentCloud\Common\AbstractModel;
  * @method void setBrand(string $Brand) 设置品牌
  * @method string getFrom() 获取来源页面
  * @method void setFrom(string $From) 设置来源页面
- * @method string getCostType() 获取耗时口径："50"/"75"/"90"/"95"/"99"/"99.5" 分别表示 TP50/TP75/TP90/TP95/TP99/TP99.5（percentile2）；"avg" 表示均值（avg）。
- * @method void setCostType(string $CostType) 设置耗时口径："50"/"75"/"90"/"95"/"99"/"99.5" 分别表示 TP50/TP75/TP90/TP95/TP99/TP99.5（percentile2）；"avg" 表示均值（avg）。
+ * @method string getCostType() 获取耗时计算方式
+ * @method void setCostType(string $CostType) 设置耗时计算方式
  * @method string getEnv() 获取环境变量
  * @method void setEnv(string $Env) 设置环境变量
- * @method string getNetStatus() 获取网络状态(tag 值):用于过滤/聚合字段 netStatus；枚举值：0(正常)、1(弱网)、2(断网)、3(其他)。 
- * @method void setNetStatus(string $NetStatus) 设置网络状态(tag 值):用于过滤/聚合字段 netStatus；枚举值：0(正常)、1(弱网)、2(断网)、3(其他)。 
- * @method boolean getWebVitals() 获取是否返回webvitals数据
- * @method void setWebVitals(boolean $WebVitals) 设置是否返回webvitals数据
+ * @method string getName() 获取url名称
+ * @method void setName(string $Name) 设置url名称
+ * @method string getStatus() 获取http状态码
+ * @method void setStatus(string $Status) 设置http状态码
+ * @method string getRet() 获取retcode
+ * @method void setRet(string $Ret) 设置retcode
+ * @method string getNetStatus() 获取网络状态
+ * @method void setNetStatus(string $NetStatus) 设置网络状态
+ * @method string getExtFourth() 获取自定义4
+ * @method void setExtFourth(string $ExtFourth) 设置自定义4
+ * @method string getExtFifth() 获取自定义5
+ * @method void setExtFifth(string $ExtFifth) 设置自定义5
+ * @method string getExtSixth() 获取自定义6
+ * @method void setExtSixth(string $ExtSixth) 设置自定义6
+ * @method string getExtSeventh() 获取自定义7
+ * @method void setExtSeventh(string $ExtSeventh) 设置自定义7
+ * @method string getExtEighth() 获取自定义8
+ * @method void setExtEighth(string $ExtEighth) 设置自定义8
+ * @method string getExtNinth() 获取自定义9
+ * @method void setExtNinth(string $ExtNinth) 设置自定义9
+ * @method string getExtTenth() 获取自定义10
+ * @method void setExtTenth(string $ExtTenth) 设置自定义10
+ * @method string getGranularity() 获取时间段
+ * @method void setGranularity(string $Granularity) 设置时间段
  */
-class DescribeDataPerformancePageRequest extends AbstractModel
+class DescribeDataBridgeUrlV2Request extends AbstractModel
 {
     /**
      * @var integer 项目ID
@@ -87,7 +107,7 @@ class DescribeDataPerformancePageRequest extends AbstractModel
     public $EndTime;
 
     /**
-     * @var string pagepv：pv视图，allcount：性能视图，falls：页面加载瀑布图，samp：首屏时间，day：14天数据，nettype：网络/平台视图，performance：页面性能TOP视图，version/platform/isp/region/device/browser/ext1/ext2/ext3/ret/status/from/url/env/：ISP视图/地区视图/浏览器视图等
+     * @var string pagepv：性能视图，allcount：性能视图，falls：页面加载瀑布图，samp：首屏时间，day：14天数据，nettype：网络/平台视图，performance：页面性能TOP视图，version/platform/isp/region/device/browser/ext1/ext2/ext3/ret/status/from/url/env/：ISP视图/地区视图/浏览器视图等
      */
     public $Type;
 
@@ -107,7 +127,7 @@ class DescribeDataPerformancePageRequest extends AbstractModel
     public $Area;
 
     /**
-     * @var string 网络类型(tag 值):用于过滤/聚合字段 netType；枚举值：1(WiFi)、2(2G)、3(3G)、4(4G)、5(5G)、6(6G)、100(未知网络)。
+     * @var string 网络类型
      */
     public $NetType;
 
@@ -142,7 +162,7 @@ class DescribeDataPerformancePageRequest extends AbstractModel
     public $ExtThird;
 
     /**
-     * @var string 显示是否海外,1表示海外，0表示非海外；默认值为空，查询所有。
+     * @var string 是否海外
      */
     public $IsAbroad;
 
@@ -172,7 +192,7 @@ class DescribeDataPerformancePageRequest extends AbstractModel
     public $From;
 
     /**
-     * @var string 耗时口径："50"/"75"/"90"/"95"/"99"/"99.5" 分别表示 TP50/TP75/TP90/TP95/TP99/TP99.5（percentile2）；"avg" 表示均值（avg）。
+     * @var string 耗时计算方式
      */
     public $CostType;
 
@@ -182,40 +202,100 @@ class DescribeDataPerformancePageRequest extends AbstractModel
     public $Env;
 
     /**
-     * @var string 网络状态(tag 值):用于过滤/聚合字段 netStatus；枚举值：0(正常)、1(弱网)、2(断网)、3(其他)。 
+     * @var string url名称
+     */
+    public $Name;
+
+    /**
+     * @var string http状态码
+     */
+    public $Status;
+
+    /**
+     * @var string retcode
+     */
+    public $Ret;
+
+    /**
+     * @var string 网络状态
      */
     public $NetStatus;
 
     /**
-     * @var boolean 是否返回webvitals数据
+     * @var string 自定义4
      */
-    public $WebVitals;
+    public $ExtFourth;
+
+    /**
+     * @var string 自定义5
+     */
+    public $ExtFifth;
+
+    /**
+     * @var string 自定义6
+     */
+    public $ExtSixth;
+
+    /**
+     * @var string 自定义7
+     */
+    public $ExtSeventh;
+
+    /**
+     * @var string 自定义8
+     */
+    public $ExtEighth;
+
+    /**
+     * @var string 自定义9
+     */
+    public $ExtNinth;
+
+    /**
+     * @var string 自定义10
+     */
+    public $ExtTenth;
+
+    /**
+     * @var string 时间段
+     */
+    public $Granularity;
 
     /**
      * @param integer $ID 项目ID
      * @param integer $StartTime 开始时间
      * @param integer $EndTime 结束时间
-     * @param string $Type pagepv：pv视图，allcount：性能视图，falls：页面加载瀑布图，samp：首屏时间，day：14天数据，nettype：网络/平台视图，performance：页面性能TOP视图，version/platform/isp/region/device/browser/ext1/ext2/ext3/ret/status/from/url/env/：ISP视图/地区视图/浏览器视图等
+     * @param string $Type pagepv：性能视图，allcount：性能视图，falls：页面加载瀑布图，samp：首屏时间，day：14天数据，nettype：网络/平台视图，performance：页面性能TOP视图，version/platform/isp/region/device/browser/ext1/ext2/ext3/ret/status/from/url/env/：ISP视图/地区视图/浏览器视图等
      * @param string $Level 日志等级
      * @param string $Isp 运营商
      * @param string $Area 地区
-     * @param string $NetType 网络类型(tag 值):用于过滤/聚合字段 netType；枚举值：1(WiFi)、2(2G)、3(3G)、4(4G)、5(5G)、6(6G)、100(未知网络)。
+     * @param string $NetType 网络类型
      * @param string $Platform 平台
      * @param string $Device 机型
      * @param string $VersionNum 版本
      * @param string $ExtFirst 自定义1
      * @param string $ExtSecond 自定义2
      * @param string $ExtThird 自定义3
-     * @param string $IsAbroad 显示是否海外,1表示海外，0表示非海外；默认值为空，查询所有。
+     * @param string $IsAbroad 是否海外
      * @param string $Browser 浏览器
      * @param string $Os 操作系统
      * @param string $Engine 浏览器引擎
      * @param string $Brand 品牌
      * @param string $From 来源页面
-     * @param string $CostType 耗时口径："50"/"75"/"90"/"95"/"99"/"99.5" 分别表示 TP50/TP75/TP90/TP95/TP99/TP99.5（percentile2）；"avg" 表示均值（avg）。
+     * @param string $CostType 耗时计算方式
      * @param string $Env 环境变量
-     * @param string $NetStatus 网络状态(tag 值):用于过滤/聚合字段 netStatus；枚举值：0(正常)、1(弱网)、2(断网)、3(其他)。 
-     * @param boolean $WebVitals 是否返回webvitals数据
+     * @param string $Name url名称
+     * @param string $Status http状态码
+     * @param string $Ret retcode
+     * @param string $NetStatus 网络状态
+     * @param string $ExtFourth 自定义4
+     * @param string $ExtFifth 自定义5
+     * @param string $ExtSixth 自定义6
+     * @param string $ExtSeventh 自定义7
+     * @param string $ExtEighth 自定义8
+     * @param string $ExtNinth 自定义9
+     * @param string $ExtTenth 自定义10
+     * @param string $Granularity 时间段
      */
     function __construct()
     {
@@ -318,12 +398,52 @@ class DescribeDataPerformancePageRequest extends AbstractModel
             $this->Env = $param["Env"];
         }
 
+        if (array_key_exists("Name",$param) and $param["Name"] !== null) {
+            $this->Name = $param["Name"];
+        }
+
+        if (array_key_exists("Status",$param) and $param["Status"] !== null) {
+            $this->Status = $param["Status"];
+        }
+
+        if (array_key_exists("Ret",$param) and $param["Ret"] !== null) {
+            $this->Ret = $param["Ret"];
+        }
+
         if (array_key_exists("NetStatus",$param) and $param["NetStatus"] !== null) {
             $this->NetStatus = $param["NetStatus"];
         }
 
-        if (array_key_exists("WebVitals",$param) and $param["WebVitals"] !== null) {
-            $this->WebVitals = $param["WebVitals"];
+        if (array_key_exists("ExtFourth",$param) and $param["ExtFourth"] !== null) {
+            $this->ExtFourth = $param["ExtFourth"];
+        }
+
+        if (array_key_exists("ExtFifth",$param) and $param["ExtFifth"] !== null) {
+            $this->ExtFifth = $param["ExtFifth"];
+        }
+
+        if (array_key_exists("ExtSixth",$param) and $param["ExtSixth"] !== null) {
+            $this->ExtSixth = $param["ExtSixth"];
+        }
+
+        if (array_key_exists("ExtSeventh",$param) and $param["ExtSeventh"] !== null) {
+            $this->ExtSeventh = $param["ExtSeventh"];
+        }
+
+        if (array_key_exists("ExtEighth",$param) and $param["ExtEighth"] !== null) {
+            $this->ExtEighth = $param["ExtEighth"];
+        }
+
+        if (array_key_exists("ExtNinth",$param) and $param["ExtNinth"] !== null) {
+            $this->ExtNinth = $param["ExtNinth"];
+        }
+
+        if (array_key_exists("ExtTenth",$param) and $param["ExtTenth"] !== null) {
+            $this->ExtTenth = $param["ExtTenth"];
+        }
+
+        if (array_key_exists("Granularity",$param) and $param["Granularity"] !== null) {
+            $this->Granularity = $param["Granularity"];
         }
     }
 }

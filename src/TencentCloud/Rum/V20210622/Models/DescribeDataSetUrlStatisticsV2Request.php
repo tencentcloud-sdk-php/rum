@@ -18,12 +18,12 @@ namespace TencentCloud\Rum\V20210622\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribeDataStaticResource请求参数结构体
+ * DescribeDataSetUrlStatisticsV2请求参数结构体
  *
  * @method integer getStartTime() 获取开始时间
  * @method void setStartTime(integer $StartTime) 设置开始时间
- * @method string getType() 获取top：资源top视图，count40x：40X视图，nettype/version/platform/isp/region/device/browser/ext1/ext2/ext3/ret/status/from/url/env/：网络平台视图/Version视图/设备视图/ISP视图/地区视图/浏览器视图//ext1视图等等
- * @method void setType(string $Type) 设置top：资源top视图，count40x：40X视图，nettype/version/platform/isp/region/device/browser/ext1/ext2/ext3/ret/status/from/url/env/：网络平台视图/Version视图/设备视图/ISP视图/地区视图/浏览器视图//ext1视图等等
+ * @method string getType() 获取allcount：性能视图，data：小程序，component：小程序相关，day：14天数据，nettype：网络/平台视图，performance：页面性能TOP视图，version/platform/isp/region/device/browser/ext1/ext2/ext3/ret/status/from/url/env/：ISP视图/地区视图/浏览器视图等
+ * @method void setType(string $Type) 设置allcount：性能视图，data：小程序，component：小程序相关，day：14天数据，nettype：网络/平台视图，performance：页面性能TOP视图，version/platform/isp/region/device/browser/ext1/ext2/ext3/ret/status/from/url/env/：ISP视图/地区视图/浏览器视图等
  * @method integer getEndTime() 获取结束时间
  * @method void setEndTime(integer $EndTime) 设置结束时间
  * @method integer getID() 获取项目ID
@@ -50,8 +50,8 @@ use TencentCloud\Common\AbstractModel;
  * @method void setExtThird(string $ExtThird) 设置自定义3
  * @method string getExtFirst() 获取自定义1
  * @method void setExtFirst(string $ExtFirst) 设置自定义1
- * @method string getNetType() 获取网络类型(tag 值):用于过滤/聚合字段 netType；枚举值：1(WiFi)、2(2G)、3(3G)、4(4G)、5(5G)、6(6G)、100(未知网络)。
- * @method void setNetType(string $NetType) 设置网络类型(tag 值):用于过滤/聚合字段 netType；枚举值：1(WiFi)、2(2G)、3(3G)、4(4G)、5(5G)、6(6G)、100(未知网络)。
+ * @method string getNetType() 获取网络类型
+ * @method void setNetType(string $NetType) 设置网络类型
  * @method string getDevice() 获取机型
  * @method void setDevice(string $Device) 设置机型
  * @method string getIsAbroad() 获取显示是否海外,1表示海外，0表示非海外；默认值为空，查询所有。
@@ -60,14 +60,30 @@ use TencentCloud\Common\AbstractModel;
  * @method void setOs(string $Os) 设置操作系统
  * @method string getBrowser() 获取浏览器
  * @method void setBrowser(string $Browser) 设置浏览器
- * @method string getCostType() 获取耗时口径："50"/"75"/"90"/"95"/"99"/"99.5" 分别表示 TP50/TP75/TP90/TP95/TP99/TP99.5（percentile2）；"avg" 表示均值（avg）。
- * @method void setCostType(string $CostType) 设置耗时口径："50"/"75"/"90"/"95"/"99"/"99.5" 分别表示 TP50/TP75/TP90/TP95/TP99/TP99.5（percentile2）；"avg" 表示均值（avg）。
- * @method string getUrl() 获取来源
- * @method void setUrl(string $Url) 设置来源
+ * @method string getCostType() 获取耗时计算
+ * @method void setCostType(string $CostType) 设置耗时计算
  * @method string getEnv() 获取环境
  * @method void setEnv(string $Env) 设置环境
+ * @method string getPackageType() 获取获取package
+ * @method void setPackageType(string $PackageType) 设置获取package
+ * @method string getExtFourth() 获取自定义4
+ * @method void setExtFourth(string $ExtFourth) 设置自定义4
+ * @method string getExtFifth() 获取自定义5
+ * @method void setExtFifth(string $ExtFifth) 设置自定义5
+ * @method string getExtSixth() 获取自定义6
+ * @method void setExtSixth(string $ExtSixth) 设置自定义6
+ * @method string getExtSeventh() 获取自定义7
+ * @method void setExtSeventh(string $ExtSeventh) 设置自定义7
+ * @method string getExtEighth() 获取自定义8
+ * @method void setExtEighth(string $ExtEighth) 设置自定义8
+ * @method string getExtNinth() 获取自定义9
+ * @method void setExtNinth(string $ExtNinth) 设置自定义9
+ * @method string getExtTenth() 获取自定义10
+ * @method void setExtTenth(string $ExtTenth) 设置自定义10
+ * @method string getGranularity() 获取时间段
+ * @method void setGranularity(string $Granularity) 设置时间段
  */
-class DescribeDataStaticResourceRequest extends AbstractModel
+class DescribeDataSetUrlStatisticsV2Request extends AbstractModel
 {
     /**
      * @var integer 开始时间
@@ -75,7 +91,7 @@ class DescribeDataStaticResourceRequest extends AbstractModel
     public $StartTime;
 
     /**
-     * @var string top：资源top视图，count40x：40X视图，nettype/version/platform/isp/region/device/browser/ext1/ext2/ext3/ret/status/from/url/env/：网络平台视图/Version视图/设备视图/ISP视图/地区视图/浏览器视图//ext1视图等等
+     * @var string allcount：性能视图，data：小程序，component：小程序相关，day：14天数据，nettype：网络/平台视图，performance：页面性能TOP视图，version/platform/isp/region/device/browser/ext1/ext2/ext3/ret/status/from/url/env/：ISP视图/地区视图/浏览器视图等
      */
     public $Type;
 
@@ -145,7 +161,7 @@ class DescribeDataStaticResourceRequest extends AbstractModel
     public $ExtFirst;
 
     /**
-     * @var string 网络类型(tag 值):用于过滤/聚合字段 netType；枚举值：1(WiFi)、2(2G)、3(3G)、4(4G)、5(5G)、6(6G)、100(未知网络)。
+     * @var string 网络类型
      */
     public $NetType;
 
@@ -170,14 +186,9 @@ class DescribeDataStaticResourceRequest extends AbstractModel
     public $Browser;
 
     /**
-     * @var string 耗时口径："50"/"75"/"90"/"95"/"99"/"99.5" 分别表示 TP50/TP75/TP90/TP95/TP99/TP99.5（percentile2）；"avg" 表示均值（avg）。
+     * @var string 耗时计算
      */
     public $CostType;
-
-    /**
-     * @var string 来源
-     */
-    public $Url;
 
     /**
      * @var string 环境
@@ -185,8 +196,53 @@ class DescribeDataStaticResourceRequest extends AbstractModel
     public $Env;
 
     /**
+     * @var string 获取package
+     */
+    public $PackageType;
+
+    /**
+     * @var string 自定义4
+     */
+    public $ExtFourth;
+
+    /**
+     * @var string 自定义5
+     */
+    public $ExtFifth;
+
+    /**
+     * @var string 自定义6
+     */
+    public $ExtSixth;
+
+    /**
+     * @var string 自定义7
+     */
+    public $ExtSeventh;
+
+    /**
+     * @var string 自定义8
+     */
+    public $ExtEighth;
+
+    /**
+     * @var string 自定义9
+     */
+    public $ExtNinth;
+
+    /**
+     * @var string 自定义10
+     */
+    public $ExtTenth;
+
+    /**
+     * @var string 时间段
+     */
+    public $Granularity;
+
+    /**
      * @param integer $StartTime 开始时间
-     * @param string $Type top：资源top视图，count40x：40X视图，nettype/version/platform/isp/region/device/browser/ext1/ext2/ext3/ret/status/from/url/env/：网络平台视图/Version视图/设备视图/ISP视图/地区视图/浏览器视图//ext1视图等等
+     * @param string $Type allcount：性能视图，data：小程序，component：小程序相关，day：14天数据，nettype：网络/平台视图，performance：页面性能TOP视图，version/platform/isp/region/device/browser/ext1/ext2/ext3/ret/status/from/url/env/：ISP视图/地区视图/浏览器视图等
      * @param integer $EndTime 结束时间
      * @param integer $ID 项目ID
      * @param string $ExtSecond 自定义2
@@ -200,14 +256,22 @@ class DescribeDataStaticResourceRequest extends AbstractModel
      * @param string $Platform 平台
      * @param string $ExtThird 自定义3
      * @param string $ExtFirst 自定义1
-     * @param string $NetType 网络类型(tag 值):用于过滤/聚合字段 netType；枚举值：1(WiFi)、2(2G)、3(3G)、4(4G)、5(5G)、6(6G)、100(未知网络)。
+     * @param string $NetType 网络类型
      * @param string $Device 机型
      * @param string $IsAbroad 显示是否海外,1表示海外，0表示非海外；默认值为空，查询所有。
      * @param string $Os 操作系统
      * @param string $Browser 浏览器
-     * @param string $CostType 耗时口径："50"/"75"/"90"/"95"/"99"/"99.5" 分别表示 TP50/TP75/TP90/TP95/TP99/TP99.5（percentile2）；"avg" 表示均值（avg）。
-     * @param string $Url 来源
+     * @param string $CostType 耗时计算
      * @param string $Env 环境
+     * @param string $PackageType 获取package
+     * @param string $ExtFourth 自定义4
+     * @param string $ExtFifth 自定义5
+     * @param string $ExtSixth 自定义6
+     * @param string $ExtSeventh 自定义7
+     * @param string $ExtEighth 自定义8
+     * @param string $ExtNinth 自定义9
+     * @param string $ExtTenth 自定义10
+     * @param string $Granularity 时间段
      */
     function __construct()
     {
@@ -306,12 +370,44 @@ class DescribeDataStaticResourceRequest extends AbstractModel
             $this->CostType = $param["CostType"];
         }
 
-        if (array_key_exists("Url",$param) and $param["Url"] !== null) {
-            $this->Url = $param["Url"];
-        }
-
         if (array_key_exists("Env",$param) and $param["Env"] !== null) {
             $this->Env = $param["Env"];
+        }
+
+        if (array_key_exists("PackageType",$param) and $param["PackageType"] !== null) {
+            $this->PackageType = $param["PackageType"];
+        }
+
+        if (array_key_exists("ExtFourth",$param) and $param["ExtFourth"] !== null) {
+            $this->ExtFourth = $param["ExtFourth"];
+        }
+
+        if (array_key_exists("ExtFifth",$param) and $param["ExtFifth"] !== null) {
+            $this->ExtFifth = $param["ExtFifth"];
+        }
+
+        if (array_key_exists("ExtSixth",$param) and $param["ExtSixth"] !== null) {
+            $this->ExtSixth = $param["ExtSixth"];
+        }
+
+        if (array_key_exists("ExtSeventh",$param) and $param["ExtSeventh"] !== null) {
+            $this->ExtSeventh = $param["ExtSeventh"];
+        }
+
+        if (array_key_exists("ExtEighth",$param) and $param["ExtEighth"] !== null) {
+            $this->ExtEighth = $param["ExtEighth"];
+        }
+
+        if (array_key_exists("ExtNinth",$param) and $param["ExtNinth"] !== null) {
+            $this->ExtNinth = $param["ExtNinth"];
+        }
+
+        if (array_key_exists("ExtTenth",$param) and $param["ExtTenth"] !== null) {
+            $this->ExtTenth = $param["ExtTenth"];
+        }
+
+        if (array_key_exists("Granularity",$param) and $param["Granularity"] !== null) {
+            $this->Granularity = $param["Granularity"];
         }
     }
 }
